@@ -1,4 +1,4 @@
--- ==========================
+-- ==================================================
 -- fichier : ddl.sql
 -- base : BILLETERIE
 -- auteur(s) : Nicolas DOUSSON
@@ -8,9 +8,11 @@
 -- 	  cles primaires, contraintes check, cles uniques,
 --	  et dependances de references.
 -- projet : Billeterie
--- ==========================
+-- ==================================================
 
+-- ==================================================
 -- Creation des tables et des contraintes associees
+-- ==================================================
 
 CREATE TABLE CLIENT (
 	IDCLI		NUMBER(4)	NOT NULL,
@@ -64,7 +66,9 @@ CREATE TABLE SITERESA (
 	CONSTRAINT PK_SITE PRIMARY KEY (IDSITERESA)
 );
 
+-- ==================================================
 -- Creation des dependances de references
+-- ==================================================
 
 ALTER TABLE BILLET
 ADD CONSTRAINT FK_BILLET_CLI FOREIGN KEY (IDCLI) REFERENCES CLIENT(IDCLI);
