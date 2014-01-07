@@ -41,3 +41,9 @@ TARIF : Prix et type de tarif d'un Billet pour un Evénement
 
 
 ## Requêtes ##
+
+Maxime :
+- nbrBillets
+- acheteursUniques
+- memeEvtMartin
+- tousLesConcerts
