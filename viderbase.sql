@@ -4,8 +4,8 @@
 -- auteur(s) : Nicolas DOUSSON
 -- auteur(s) : Maxime LAFARIE
 -- date : 07/01/14
--- role : 
--- projet : 
+-- role : Requête pour vider la base.
+-- projet : BILLETERIE
 -- ==========================
 
 -- suppression des nuplets de billet
