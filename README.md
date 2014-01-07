@@ -27,14 +27,14 @@ stockés dans la base de données de la société.
 
 ## Dictionnaire de données ##
 
-#####BILLET Place achetée pour assister à une événement, un Billet correspond à une personne. Un même Client peut acheter plusieurs Billets.
+BILLET : Place achetée pour assister à une événement, un Billet correspond à une personne. Un même Client peut acheter plusieurs Billets.
 
-#####CLIENT Personne qui a acheté une ou des places
+CLIENT : Personne qui a acheté une ou des places
 
-#####EVENEMENT  Manifestation, spectable se déroulant
+EVENEMENT : Manifestation, spectable se déroulant
 
-#####SALLE  Lieu où se déroule un Evénement
+SALLE : Lieu où se déroule un Evénement
 
-#####SITERESA Site interne pour réserver et acheter des Billets pour un Evénement
+SITERESA : Site interne pour réserver et acheter des Billets pour un Evénement
 
-#####TARIF  Prix et type de tarif d'un Billet pour un Evénement
+TARIF : Prix et type de tarif d'un Billet pour un Evénement
