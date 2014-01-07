@@ -4,24 +4,24 @@
 -- auteur(s) : Nicolas DOUSSON
 -- auteur(s) : Maxime LAFARIE
 -- date : 07/01/14
--- role : Requête pour vider la base.
+-- role : Requêtes pour vider la base.
 -- projet : BILLETERIE
 -- ==========================
 
 -- suppression des nuplets de billet
-DELETE FROM billet;
+DELETE FROM BILLET;
 
 -- suppression des nuplets de client
-DELETE FROM client;
+DELETE FROM CLIENT;
 
 -- suppression des nuplets de tarif
-DELETE FROM tarif;
+DELETE FROM TARIF;
 
 -- suppresssion des nuplets du siteresa
-DELETE FROM siteresa;
+DELETE FROM SITERESA;
 
 -- suppression des nuplets de evenement
-DELETE FROM evenement;
+DELETE FROM EVENEMENT;
 
 -- suppresssion des nuplets de salle
-DELETE FROM salle;
+DELETE FROM SALLE;
