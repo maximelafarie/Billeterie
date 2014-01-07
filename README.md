@@ -18,11 +18,24 @@ stockés dans la base de données de la société.
 
 ## Schéma Relationnel ##
 
-CLIENT(IDCLI, NOMCLI, PRENOMCLI, TELCLI, MAILCLI, ADRCLI)
-BILLET(IDBILLET, CODEBILLET, IDCLI, IDTARIF, IDSITERESA, IDEVT)
-EVENEMENT(IDEVT, TITREEVT, DATEEVT, TYPEEVT, IDSALLE)
-SALLE(IDSALLE, NOMSALLE, ADRSALLE)
-TARIF(IDTARIF, PRIX, TYPETARIF)
-SITERESA(IDSITERESA, NOMSITERESA, URLSITERESA)
+#####CLIENT(IDCLI, NOMCLI, PRENOMCLI, TELCLI, MAILCLI, ADRCLI)
+#####BILLET(IDBILLET, CODEBILLET, IDCLI, IDTARIF, IDSITERESA, IDEVT)
+#####EVENEMENT(IDEVT, TITREEVT, DATEEVT, TYPEEVT, IDSALLE)
+#####SALLE(IDSALLE, NOMSALLE, ADRSALLE)
+#####TARIF(IDTARIF, PRIX, TYPETARIF)
+#####SITERESA(IDSITERESA, NOMSITERESA, URLSITERESA)
 
 ## Dictionnaire de données ##
+
+#####BILLET Place achetée pour assister à une événement, un Billet correspond à une personne
+            Un même Client peut acheter plusieurs Billets.
+
+#####CLIENT Personne qui a acheté une ou des places
+
+#####EVENEMENT  Manifestation, spectable se déroulant
+
+#####SALLE  Lieu où se déroule un Evénement
+
+#####SITERESA Site interne pour réserver et acheter des Billets pour un Evénement
+
+#####TARIF  Prix et type de tarif d'un Billet pour un Evénement
