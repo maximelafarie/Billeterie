@@ -27,8 +27,7 @@ stockés dans la base de données de la société.
 
 ## Dictionnaire de données ##
 
-#####BILLET Place achetée pour assister à une événement, un Billet correspond à une personne
-            Un même Client peut acheter plusieurs Billets.
+#####BILLET Place achetée pour assister à une événement, un Billet correspond à une personne. Un même Client peut acheter plusieurs Billets.
 
 #####CLIENT Personne qui a acheté une ou des places
 
