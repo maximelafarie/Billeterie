@@ -1,10 +1,10 @@
-Billeterie
-==========
-
 DOUSSON Nicolas
 LAFARIE Maxime
 
 Projet BDD Info1
+
+PROJET BILLETERIE
+=================
 
 ## Etude Proposee ##
 
@@ -15,3 +15,14 @@ Les billets peuvent être également vendus par un tiers comme un site internet
 spécialisé dans la vente de billets événementiels (ex. : "digitick").
 Tous les billets vendus (en direct aux particuliers et par des sites tiers) sont
 stockés dans la base de données de la société.
+
+## Schéma Relationnel ##
+
+CLIENT(IDCLI, NOMCLI, PRENOMCLI, TELCLI, MAILCLI, ADRCLI)
+BILLET(IDBILLET, CODEBILLET, IDCLI, IDTARIF, IDSITERESA, IDEVT)
+EVENEMENT(IDEVT, TITREEVT, DATEEVT, TYPEEVT, IDSALLE)
+SALLE(IDSALLE, NOMSALLE, ADRSALLE)
+TARIF(IDTARIF, PRIX, TYPETARIF)
+SITERESA(IDSITERESA, NOMSITERESA, URLSITERESA)
+
+## Dictionnaire de données ##
