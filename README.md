@@ -50,4 +50,5 @@ TARIF : Prix et type de tarif d'un Billet pour un Evénement
 
 
 #####Changer format date :
+/!\ A mettre dans TOUS les fichiers de test
 ALTER SESSION set NLS_DATE_FORMAT='dd/mm/yyyy';
