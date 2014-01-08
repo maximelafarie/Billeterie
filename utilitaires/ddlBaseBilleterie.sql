@@ -13,16 +13,13 @@
 -- ==================================================
 -- Creation des tables et des contraintes associees
 -- ==================================================
+
+-- Suppression des tables de la base BILLETERIE
 DROP TABLE SALLE CASCADE CONSTRAINTS;
-
 DROP TABLE EVENEMENT CASCADE CONSTRAINTS;
-
 DROP TABLE SITERESA CASCADE CONSTRAINTS;
-
 DROP TABLE TARIF CASCADE CONSTRAINTS;
-
 DROP TABLE CLIENT CASCADE CONSTRAINTS;
-
 DROP TABLE BILLET CASCADE CONSTRAINTS;
 
 
