@@ -1,11 +1,11 @@
 -- ============================================================================
 -- Fichier          : descriptionBaseBilleterie.sql
 -- Auteur(s)        : Maxime LAFARIE
--- Auteur(s)		: Nicolas DOUSSON
+-- Auteur(s)		    : Nicolas DOUSSON
 -- Date             : 07/01/14
--- role 			: Requete d'affichage des contraintes associées aux relations.
--- base 			: BILLETERIE
--- projet 			: BILLETERIE
+-- role 			      : Requete d'affichage des contraintes associées aux relations.
+-- base 			      : BILLETERIE
+-- projet 			    : BILLETERIE
 -- Fichier resultat : descriptionBaseBilleterie.out
 -- ============================================================================
 
