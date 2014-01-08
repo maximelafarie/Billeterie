@@ -20,7 +20,7 @@ VALUES (1, 100, 'etudiant');
 INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
 VALUES (1, 'LACOMMANDE', 'www.lacommande.com');
 
--- INSERTION D'UN NOUVEAU BILLET
+-- INSERTION D'UN NOUVEAU BILLET : Cas site resa
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
 VALUES (1, 'PEST', 'BUDA', '0505050505', 'budapest@exemple.org', 'BUDAPEST');
 INSERT INTO tarif (idtarif, prix, typetarif)
@@ -31,6 +31,20 @@ INSERT INTO salle (idsalle, nomsalle, adrsalle)
 VALUES (1, 'DUCHAMP', 'BURKINA');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (1, 'BOURRAGE', '01/02/2014', 'enfant', 1);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (1, '1055d255e', 1, 1, 1, 1);
+
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
+VALUES (1, 'PEST', 'BUDA', '0505050505', 'budapest@exemple.org', 'BUDAPEST');
+INSERT INTO tarif (idtarif, prix, typetarif)
+VALUES (1, 100, 'etudiant');
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (1, 'DUCHAMP', 'BURKINA');
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (1, 'BOURRAGE', '01/02/2014', 'enfant', 1);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (1, '1055d255e', 1, 1, NULL, 1);
 
 -- INSERTION D'UNE NOUVELLE SALLE
 INSERT INTO salle (idsalle, nomsalle, adrsalle)
