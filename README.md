@@ -47,3 +47,7 @@ TARIF : Prix et type de tarif d'un Billet pour un Evénement
 - acheteursUniques
 - memeEvtMartin
 - tousLesConcerts
+
+
+#####Changer format date :
+ALTER SESSION set NLS_DATE_FORMAT='dd/mm/yyyy';
