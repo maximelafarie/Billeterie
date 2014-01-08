@@ -1,5 +1,5 @@
 -- ==========================
--- fichier : viderbase.sql
+-- fichier : presentationBaseBilleterie.sql
 -- base : BILLETERIE
 -- auteur(s) : Maxime LAFARIE
 -- auteur(s) : Nicolas DOUSSON

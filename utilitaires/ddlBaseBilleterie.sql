@@ -1,5 +1,5 @@
 -- ==================================================
--- fichier : ddl.sql
+-- fichier : ddlBaseBilleterie.sql
 -- base : BILLETERIE
 -- auteur(s) : Nicolas DOUSSON
 -- auteur(s) : Maxime LAFARIE
@@ -57,7 +57,7 @@ CREATE TABLE TARIF (
 	PRIX		NUMBER(5,2)	NOT NULL,
 	TYPETARIF	CHAR(8)		NOT NULL,
 	CONSTRAINT PK_TARIF PRIMARY KEY (IDTARIF)
-	CONSTRAINT CK_TYPETARIF CHECK (TYPETARIF IN('etudiant','plein','endant'))
+	CONSTRAINT CK_TYPETARIF CHECK (TYPETARIF IN('etudiant','plein','enfant'))
 );
 
 CREATE TABLE SITERESA (

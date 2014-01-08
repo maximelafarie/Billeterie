@@ -1,5 +1,5 @@
 -- ==========================
--- fichier : modeleinsertion.sql
+-- fichier : modeleIsertBaseBilleterie.sql
 -- base : BILLETERIE
 -- auteur(s) : Nicolas DOUSSON
 -- auteur(s) : Maxime LAFARIE
