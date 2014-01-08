@@ -11,6 +11,12 @@
 
 SPOOL descriptionBaseBilleterie.out
 
+--Amelioration de l'affichage
+COLUMN CCOLUMN FORMAT A15;
+COLUMN COND FORMAT A30;
+COLUMN RCOLUMN FORMAT A15;
+COLUMN RTABLE FORMAT A15;
+COLUMN CNAME FORMAT A25;
 
 PROMPT Affichage des contraintes associees au schema
 -- Requete qui affiche les contraintes associees au schema
