@@ -20,26 +20,50 @@ alter session set NLS_DATE_FORMAT='dd-mm-yyyy';
 -- ============================================================================
 @ viderContenuBaseBilleterie.sql
 -- ============================================================================
--- Jeu de test pour le DOMAINE VALIDE 
--- NB : L'insertion de chaque nuplet doit faire l'objet d'un commentaire, 
--- notamment pour motiver le/les cas dans le(s)quel(s) il intervient.
+-- Jeu de test pour le DOMAINE VALIDE
 -- ============================================================================
 
+-- INSERTION D'UN NOUVEAU BILLET : Cas site resa
+INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
+VALUES (1, 'MARTIN', 'Jean', '0505050505', 'martin@gamil.com', 'La Rochelle');
+INSERT INTO tarif (idtarif, prix, typetarif)
+VALUES (1, 100, 'plein');
+INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
+VALUES (1, 'LeMoinsCher', 'www.lmc.com');
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (1, 'CARLINE', 'La Rochelle');
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (1, '1055d255e', 1, 1, 1, 1);
+
+-- INSERTION D'UN NOUVEAU BILLET : Cas site resa
+INSERT INTO tarif (idtarif, prix, typetarif)
+VALUES (2, 65, 'plein');
+INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
+VALUES (1, 'LeMoinsCher', 'www.lmc.com');
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (2, 'ESTAPHANE', 'La Rochelle');
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (2, 'Lestimache', '31/11/2013', 'concert', 2);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (2, '10ed82f5e', 1, 2, 1, 2);
+
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+INSERT INTO tarif (idtarif, prix, typetarif)
+VALUES (3, 50, 'plein');
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (3, 'Lourdine', 'Bordeaux');
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (3, 'Miligane', '15/04/2014', 'concert', 3);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (3, 'fe75d255e', 1, 3, NULL, 3);
 
 
 -- ============================================================================
 -- Jeu de test pour le DOMAINE INVALIDE 
 -- ============================================================================
 
--- ============================================================================
--- resultats a mettre dans le fichier a nommer obligatoirement:
--- 
--- ce fichier doit contenir:	
---	1. l'etat de la base avant execution de la requete (donc juste apres 
---         les INSERT)
---	2. le texte SQL de la requete
---	3. le resultat de l'execution de la requete
--- ============================================================================
 
 -- Debut de l'ecriture du fichier resultat du programme de test 
 SPOOL testEvtMartinSaison1314.out  
