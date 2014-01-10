@@ -25,7 +25,7 @@ alter session set NLS_DATE_FORMAT='dd-mm-yyyy';
 
 -- INSERTION D'UN NOUVEAU BILLET : Cas site resa
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
-VALUES (1, 'MARTIN', 'Jean', '0505050505', 'martin@gamil.com', 'La Rochelle');
+VALUES (1, 'MARTIN', 'Jean', '0505050505', 'martin@gmail.com', 'La Rochelle');
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (1, 100, 'plein');
 INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
@@ -40,8 +40,6 @@ VALUES (1, '1055d255e', 1, 1, 1, 1);
 -- INSERTION D'UN NOUVEAU BILLET : Cas site resa
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (2, 65, 'plein');
-INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
-VALUES (1, 'LeMoinsCher', 'www.lmc.com');
 INSERT INTO salle (idsalle, nomsalle, adrsalle)
 VALUES (2, 'ESTAPHANE', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
@@ -64,6 +62,13 @@ VALUES (3, 'fe75d255e', 1, 3, NULL, 3);
 -- Jeu de test pour le DOMAINE INVALIDE 
 -- ============================================================================
 
+-- INSERTION D'UN NOUVEAU BILLET : Cas site resa qui n'est pas dans les dates de la requête
+INSERT INTO tarif (idtarif, prix, typetarif)
+VALUES (4, 25, 'plein');
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (4, 'Bigalou', '15/07/2014', 'sport', 1);
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (4, 'ae15df7789', 1, 4, 1, 4);
 
 -- Debut de l'ecriture du fichier resultat du programme de test 
 SPOOL testEvtMartinSaison1314.out  

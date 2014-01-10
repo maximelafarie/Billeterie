@@ -2,10 +2,9 @@
 -- fichier : evtMartinSaison1314.sql
 -- base : BILLETERIE
 -- auteur(s) : Nicolas DOUSSON
--- auteur(s) : Maxime LAFARIE
 -- date : 07/01/14
 -- role : Affichage des événements pour lesquels Jean MARTIN
---		  a acheté billets qui se déroulent entre septembre
+--		  a acheté des billets qui se déroulent entre septembre
 --		  2013 et juin 2014
 -- projet : Billeterie
 -- ==================================================

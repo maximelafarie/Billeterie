@@ -2,7 +2,6 @@
 -- fichier : nbrDiffEvtMartin.sql
 -- base : BILLETERIE
 -- auteur(s) : Nicolas DOUSSON
--- auteur(s) : Maxime LAFARIE
 -- date : 07/01/14
 -- role : Affichage du prix des billets de Jea MARTIN
 --		  pour les événement de type Sport ou Concert
