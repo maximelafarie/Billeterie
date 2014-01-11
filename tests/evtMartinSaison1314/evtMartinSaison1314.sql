@@ -9,7 +9,7 @@
 -- projet : Billeterie
 -- ==================================================
 
-SELECT C.nomcli, C.prenomcli, E.titreevt, E.dateevt
+SELECT DISTINCT C.nomcli, C.prenomcli, E.titreevt, E.dateevt
 FROM Billet B, Client C, Evenement E
 WHERE C.nomcli = 'MARTIN'
 AND C.prenomcli = 'Jean'
