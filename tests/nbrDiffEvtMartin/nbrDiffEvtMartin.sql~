@@ -8,7 +8,7 @@
 -- projet : Billeterie
 -- ==================================================
 
-SELECT C.nomcli, C.prenomcli, COUNT(DISTINCT B.idevt) as nbrEvtBilletAchete
+SELECT C.nomcli, C.prenomcli, COUNT(B.idevt) as nbrEvtBilletAchete
 FROM Client C, Evenement E, Billet B
 WHERE C.nomcli = 'MARTIN'
 AND C.prenomcli = 'Jean'

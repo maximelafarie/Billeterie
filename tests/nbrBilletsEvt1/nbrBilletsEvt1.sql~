@@ -8,7 +8,7 @@
 -- projet : Billeterie
 -- ==================================================
 
-SELECT COUNT(B.idbillet) as billetvendu
+SELECT SUM(B.idbillet) as billetvendu
 FROM Billet B, Evenement E
 WHERE E.idevt = 1
 AND B.idevt = E.idevt;

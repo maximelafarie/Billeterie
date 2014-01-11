@@ -41,12 +41,6 @@ VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
 
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (2, 50, 'enfant');
-INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
-VALUES (1, 'LeMoinsCher', 'www.lmc.com');
-INSERT INTO salle (idsalle, nomsalle, adrsalle)
-VALUES (1, 'CARLINE', 'La Rochelle');
-INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
-VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (2, '65QS82CD02POD', 1, 2, 1, 1);
 
@@ -76,10 +70,6 @@ VALUES (4, '65DE48IL37UDT', 1, 4, NULL, 3);
 
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (5, 25, 'enfant');
-INSERT INTO salle (idsalle, nomsalle, adrsalle)
-VALUES (3, 'Ilimage', 'Nantes');
-INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
-VALUES (3, 'Barbatruc', '25/06/2014', 'concert', 3);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (5, '15KD86KU92EGT', 1, 5, NULL, 3);
 
@@ -91,16 +81,16 @@ VALUES (5, '15KD86KU92EGT', 1, 5, NULL, 3);
 -- INSERTION D'UN NOUVEAU BILLET : Cas site resa
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
 VALUES (2, 'DUPONT', 'Paul', '0506060606', 'dupont@gmail.com', 'La Rochelle');
-INSERT INTO tarif (idtarif, prix, typetarif)
-VALUES (1, 100, 'plein');
-INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
-VALUES (1, 'LeMoinsCher', 'www.lmc.com');
-INSERT INTO salle (idsalle, nomsalle, adrsalle)
-VALUES (1, 'CARLINE', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (4, 'Lourpa', '05/03/2015', 'comedie', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (6, '02IH68GT40FAB', 2, 1, 1, 4);
+
+-- CAS 5 : Jean Martin a acheté 1 billet en vente direct pour l'evenement d'id 4
+-- 		   de type comedie
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (7, '70DE65MQ58DOE', 1, 3, NULL, 4);
 
 -- Debut de l'ecriture du fichier resultat du programme de test
 SPOOL testCoutMartinConcertSport.out

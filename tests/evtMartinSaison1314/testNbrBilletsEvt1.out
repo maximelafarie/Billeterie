@@ -1,0 +1,115 @@
+fichier resultat du test : testNbrBilletsEvt1.out
+Contenu de la base :
+SQL> @ afficherContenuBaseBilleterie.sql
+SQL> -- ==========================
+SQL> -- fichier : afficherContenuBaseBilleterie.sql
+SQL> -- base : BILLETERIE
+SQL> -- auteur(s) : Maxime LAFARIE
+SQL> -- auteur(s) : Nicolas DOUSSON
+SQL> -- date : 07/01/14
+SQL> -- role : Afficher le contenu des differentes tables de la base
+SQL> -- projet : Billeterie
+SQL> -- ==========================
+SQL> 
+SQL> prompt Contenu de la table client :
+Contenu de la table client :
+SQL> 
+SQL> SELECT * FROM CLIENT;
+
+     IDCLI NOMCLI          PRENOMCLI       TELCLI     MAILCLI                   
+---------- --------------- --------------- ---------- --------------------      
+ADRCLI                                                                          
+---------------                                                                 
+         1 MARTIN          Jean            0505050505 martin@gmail.com          
+La Rochelle                                                                     
+                                                                                
+         2 DUPONT          Paul            0506060606 dupont@gmail.com          
+La Rochelle                                                                     
+                                                                                
+
+SQL> 
+SQL> prompt Contenu de la table billet :
+Contenu de la table billet :
+SQL> 
+SQL> SELECT * FROM BILLET;
+
+  IDBILLET CODEBILLET           IDCLI    IDTARIF IDSITERESA      IDEVT          
+---------- --------------- ---------- ---------- ---------- ----------          
+         1 15ED68EP10EPD            1          1          1          1          
+         2 65QS82CD02POD            1          2          1          1          
+         3 02IH68GT40FAB            2          1          1          1          
+         4 85PO36DM19CBD            1          1                     2          
+
+SQL> 
+SQL> prompt Contenu de la table evenement :
+Contenu de la table evenement :
+SQL> 
+SQL> SELECT * FROM EVENEMENT;
+
+     IDEVT TITREEVT                                           DATEEVT    TYPEEVT
+---------- -------------------------------------------------- ---------- -------
+   IDSALLE                                                                      
+----------                                                                      
+         1 Les Joyaux                                         01-02-2014 sport  
+         1                                                                      
+                                                                                
+         2 Clipto                                             10-04-2014 concert
+         2                                                                      
+                                                                                
+
+SQL> 
+SQL> prompt Contenu de la table salle :
+Contenu de la table salle :
+SQL> 
+SQL> SELECT * FROM SALLE;
+
+   IDSALLE NOMSALLE                                                             
+---------- --------------------------------------------------                   
+ADRSALLE                                                                        
+--------------------------------------------------------------------------------
+         1 CARLINE                                                              
+La Rochelle                                                                     
+                                                                                
+         2 Melrane                                                              
+Bordeaux                                                                        
+                                                                                
+
+SQL> 
+SQL> prompt Contenu de la table tarif :
+Contenu de la table tarif :
+SQL> 
+SQL> SELECT * FROM TARIF;
+
+   IDTARIF       PRIX TYPETARI                                                  
+---------- ---------- --------                                                  
+         1        100 plein                                                     
+         2         50 enfant                                                    
+         3         85 plein                                                     
+
+SQL> 
+SQL> prompt Contenu de la table siteresa :
+Contenu de la table siteresa :
+SQL> 
+SQL> SELECT * FROM SITERESA;
+
+IDSITERESA NOMSITERESA                                                          
+---------- --------------------------------------------------                   
+URLSITERESA                                                                     
+--------------------------------------------------------------------------------
+         1 LeMoinsCher                                                          
+www.lmc.com                                                                     
+                                                                                
+
+SQL> 
+SQL> -- ============================================================================
+SQL> -- Requete a tester
+SQL> -- ============================================================================
+SQL> 
+SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
+SQL> prompt 'Resultat de la requete'
+'Resultat de la requete'
+SQL> @ nbrBilletsEvt1.sql
+SP2-0310: unable to open file "nbrBilletsEvt1.sql"
+SQL> 
+SQL> -- Fin de l'affichage sur le client SqlPlus
+SQL> SET echo OFF
