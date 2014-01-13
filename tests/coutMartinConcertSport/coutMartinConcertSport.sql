@@ -15,5 +15,4 @@ AND C.prenomcli = 'Jean'
 AND E.idevt = B.idevt
 AND B.idtarif = T.idtarif
 AND C.idcli = B.idcli
-AND E.typeevt = 'concert'
-AND E.typeevt = 'sport';
+AND E.typeevt IN ('concert', 'sport');

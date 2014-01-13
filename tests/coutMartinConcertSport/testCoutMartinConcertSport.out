@@ -147,12 +147,15 @@ SQL> SELECT DISTINCT C.nomcli, C.prenomcli, B.idbillet, E.typeevt, T.prix
   5  AND E.idevt = B.idevt
   6  AND B.idtarif = T.idtarif
   7  AND C.idcli = B.idcli
-  8  AND E.typeevt = 'concert' or 'sport';
-AND E.typeevt = 'concert' or 'sport'
-                                   *
-ERROR at line 8:
-ORA-00920: invalid relational operator 
+  8  AND E.typeevt IN ('concert', 'sport');
 
+NOMCLI          PRENOMCLI         IDBILLET TYPEEVT       PRIX                   
+--------------- --------------- ---------- ------- ----------                   
+MARTIN          Jean                     5 concert         25                   
+MARTIN          Jean                     1 sport          100                   
+MARTIN          Jean                     2 sport           50                   
+MARTIN          Jean                     4 concert         65                   
+MARTIN          Jean                     3 concert        100                   
 
 SQL> 
 SQL> -- Fin de l'affichage sur le client SqlPlus
