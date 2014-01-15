@@ -1,6 +1,6 @@
 fichier resultat du test : testCoutMartinConcertSport.out
 Contenu de la base :
-SQL> @ afficherContenuBaseBilleterie.sql
+SQL> @ utilitaires/afficherContenuBaseBilleterie.sql
 SQL> -- ==========================
 SQL> -- fichier : afficherContenuBaseBilleterie.sql
 SQL> -- base : BILLETERIE
@@ -51,27 +51,12 @@ Contenu de la table evenement :
 SQL> 
 SQL> SELECT * FROM EVENEMENT;
 
-     IDEVT TITREEVT                                           DATEEVT    TYPEEVT
----------- -------------------------------------------------- ---------- -------
-   IDSALLE                                                                      
-----------                                                                      
-         1 Les Joyaux                                         01-02-2014 sport  
-         1                                                                      
-                                                                                
-         2 Clipto                                             10-04-2014 concert
-         2                                                                      
-                                                                                
-         3 Barbatruc                                          25-06-2014 concert
-         3                                                                      
-                                                                                
-
-     IDEVT TITREEVT                                           DATEEVT    TYPEEVT
----------- -------------------------------------------------- ---------- -------
-   IDSALLE                                                                      
-----------                                                                      
-         4 Lourpa                                             05-03-2015 comedie
-         1                                                                      
-                                                                                
+     IDEVT TITREEVT        DATEEVT    TYPEEVT    IDSALLE                        
+---------- --------------- ---------- ------- ----------                        
+         1 Les Joyaux      01-02-2014 sport            1                        
+         2 Clipto          10-04-2014 concert          2                        
+         3 Barbatruc       25-06-2014 concert          3                        
+         4 Lourpa          05-03-2015 comedie          1                        
 
 SQL> 
 SQL> prompt Contenu de la table salle :
@@ -79,19 +64,11 @@ Contenu de la table salle :
 SQL> 
 SQL> SELECT * FROM SALLE;
 
-   IDSALLE NOMSALLE                                                             
----------- --------------------------------------------------                   
-ADRSALLE                                                                        
---------------------------------------------------------------------------------
-         1 CARLINE                                                              
-La Rochelle                                                                     
-                                                                                
-         2 Melrane                                                              
-Bordeaux                                                                        
-                                                                                
-         3 Ilimage                                                              
-Nantes                                                                          
-                                                                                
+   IDSALLE NOMSALLE        ADRSALLE                                             
+---------- --------------- --------------------                                 
+         1 CARLINE         La Rochelle                                          
+         2 Melrane         Bordeaux                                             
+         3 Ilimage         Nantes                                               
 
 SQL> 
 SQL> prompt Contenu de la table tarif :
@@ -113,13 +90,9 @@ Contenu de la table siteresa :
 SQL> 
 SQL> SELECT * FROM SITERESA;
 
-IDSITERESA NOMSITERESA                                                          
----------- --------------------------------------------------                   
-URLSITERESA                                                                     
---------------------------------------------------------------------------------
-         1 LeMoinsCher                                                          
-www.lmc.com                                                                     
-                                                                                
+IDSITERESA NOMSITERESA          URLSITERESA                                     
+---------- -------------------- --------------------                            
+         1 LeMoinsCher          www.lmc.com                                     
 
 SQL> 
 SQL> -- ============================================================================
@@ -129,34 +102,34 @@ SQL>
 SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 SQL> prompt 'Resultat de la requete'
 'Resultat de la requete'
-SQL> @ coutMartinConcertSport.sql
+SQL> @ tests/coutMartinConcertSport/coutMartinConcertSport.sql
 SQL> -- ==================================================
 SQL> -- fichier : nbrDiffEvtMartin.sql
 SQL> -- base : BILLETERIE
 SQL> -- auteur(s) : Nicolas DOUSSON
 SQL> -- date : 07/01/14
-SQL> -- role : Affichage du prix des billets de Jean MARTIN
-SQL> -- 	       pour les événements de type Sport ou Concert
+SQL> -- role : Affichage du coût pour MARTIN Jean pour les
+SQL> -- 	       événements de type Sport ou Concert
 SQL> -- projet : Billeterie
 SQL> -- ==================================================
 SQL> 
-SQL> SELECT DISTINCT C.nomcli, C.prenomcli, B.idbillet, E.typeevt, T.prix
+SQL> SELECT DISTINCT C.nomcli, C.prenomcli, E.typeevt, E.titreevt, SUM(T.prix) as "Prix pour Mr. MARTIN"
   2  FROM Billet B, Client C, Tarif T, Evenement E
   3  WHERE C.nomcli = 'MARTIN'
   4  AND C.prenomcli = 'Jean'
   5  AND E.idevt = B.idevt
   6  AND B.idtarif = T.idtarif
   7  AND C.idcli = B.idcli
-  8  AND E.typeevt IN ('concert', 'sport');
+  8  AND E.typeevt IN ('concert', 'sport')
+  9  GROUP BY C.nomcli, C.prenomcli, E.typeevt, E.titreevt;
 
-NOMCLI          PRENOMCLI         IDBILLET TYPEEVT       PRIX                   
---------------- --------------- ---------- ------- ----------                   
-MARTIN          Jean                     5 concert         25                   
-MARTIN          Jean                     1 sport          100                   
-MARTIN          Jean                     2 sport           50                   
-MARTIN          Jean                     4 concert         65                   
-MARTIN          Jean                     3 concert        100                   
+NOMCLI          PRENOMCLI       TYPEEVT TITREEVT        Prix pour Mr. MARTIN    
+--------------- --------------- ------- --------------- --------------------    
+MARTIN          Jean            sport   Les Joyaux                       150    
+MARTIN          Jean            concert Clipto                           100    
+MARTIN          Jean            concert Barbatruc                         90    
 
+SQL> 
 SQL> 
 SQL> -- Fin de l'affichage sur le client SqlPlus
 SQL> SET echo OFF
