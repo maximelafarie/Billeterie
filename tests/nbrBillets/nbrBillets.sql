@@ -8,8 +8,8 @@
 --                    decroissant.
 -- ============================================================================
 
-SELECT E.idevt, E.titreevt, COUNT(B.idbillet) AS NBRBILLETS
-FROM EVENEMENT E, BILLET B
-WHERE E.idevt = B.idevt
-GROUP BY E.idevt, B.idbillet
+SELECT COUNT(idbillet) AS NBRBILLETS, E.titreevt
+FROM BILLET B, EVENEMENT E
+WHERE B.idevt = E.idevt
+GROUP BY titreevt
 ORDER BY NBRBILLETS DESC;
