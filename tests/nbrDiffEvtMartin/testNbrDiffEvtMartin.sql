@@ -18,7 +18,7 @@ alter session set NLS_DATE_FORMAT='dd-mm-yyyy';
 -- NB : Le test est effectué sur une base vide, il est nécessaire
 -- de supprimer tous les nuplets de toutes les relations
 -- ============================================================================
-@ viderContenuBaseBilleterie.sql
+@ utilitaires/viderContenuBaseBilleterie.sql
 -- ============================================================================
 -- Jeu de test pour le DOMAINE VALIDE
 -- ============================================================================
@@ -85,16 +85,16 @@ INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (6, '02IH68GT40FAB', 2, 1, 1, 4);
 
 -- Debut de l'ecriture du fichier resultat du programme de test
-SPOOL testNbrDiffEvtMartin.out
+SPOOL tests/nbrDiffEvtMartin/testNbrDiffEvtMartin.out
 PROMPT fichier resultat du test : testNbrDiffEvtMartin.out
 
 -- Appel du fichier de presentation
-@ presentationBaseBilleterie.sql
+@ utilitaires/presentationBaseBilleterie.sql
 
 -- Afficher le contenu des relations de la base de donnees
 PROMPT Contenu de la base :
 SET echo ON
-@ afficherContenuBaseBilleterie.sql
+@ utilitaires/afficherContenuBaseBilleterie.sql
 
 -- ============================================================================
 -- Requete a tester
@@ -102,7 +102,7 @@ SET echo ON
 
 -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 prompt 'Resultat de la requete'
-@ nbrDiffEvtMartin.sql
+@ tests/nbrDiffEvtMartin/nbrDiffEvtMartin.sql
 
 -- Fin de l'affichage sur le client SqlPlus
 SET echo OFF
