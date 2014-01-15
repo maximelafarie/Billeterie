@@ -38,13 +38,13 @@ VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
 VALUES (1, 'MARTIN', 'Jean', '0505050505', 'martin@gmail.com', 'La Rochelle');
 INSERT INTO tarif (idtarif, prix, typetarif)
-VALUES (3, 85, 'plein');
+VALUES (2, 85, 'plein');
 INSERT INTO salle (idsalle, nomsalle, adrsalle)
 VALUES (2, 'Melrane', 'Bordeaux');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '85PO36DM19CBD', 1, 1, NULL, 2);
+VALUES (2, '85PO36DM19CBD', 1, 2, NULL, 2);
 
 
 -- INSERTION D'UNE NOUVELLE SALLE
