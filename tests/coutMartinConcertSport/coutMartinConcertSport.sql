@@ -8,11 +8,12 @@
 -- projet : Billeterie
 -- ==================================================
 
-SELECT DISTINCT C.nomcli, C.prenomcli, B.idbillet, E.typeevt, T.prix, E.titreevt, SUM(T.prix)
+SELECT DISTINCT C.nomcli, C.prenomcli, E.typeevt, E.titreevt, SUM(T.prix) as "Prix pour Mr. MARTIN"
 FROM Billet B, Client C, Tarif T, Evenement E
 WHERE C.nomcli = 'MARTIN'
 AND C.prenomcli = 'Jean'
 AND E.idevt = B.idevt
 AND B.idtarif = T.idtarif
 AND C.idcli = B.idcli
-AND E.typeevt IN ('concert', 'sport');
+AND E.typeevt IN ('concert', 'sport')
+GROUP BY C.nomcli, C.prenomcli, E.typeevt, E.titreevt;
