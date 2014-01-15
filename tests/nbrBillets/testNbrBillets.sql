@@ -1,7 +1,6 @@
 -- ==================================================
 -- fichier : testnbrBillets.sql
 -- base : BILLETERIE
--- auteur(s) : Nicolas DOUSSON
 -- auteur(s) : Maxime LAFARIE
 -- date : 07/01/14
 -- role : 
