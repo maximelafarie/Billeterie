@@ -8,7 +8,7 @@
 -- projet : Billeterie
 -- ==================================================
 
-SELECT DISTINCT C.nomcli, C.prenomcli, B.idbillet, E.typeevt, T.prix
+SELECT DISTINCT C.nomcli, C.prenomcli, B.idbillet, E.typeevt, T.prix, E.titreevt, SUM(T.prix)
 FROM Billet B, Client C, Tarif T, Evenement E
 WHERE C.nomcli = 'MARTIN'
 AND C.prenomcli = 'Jean'
