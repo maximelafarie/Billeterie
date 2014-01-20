@@ -72,8 +72,8 @@ VALUES (4, '07ED77XD10EFR79', 2, 2, 2, 3);
 -- Pas de domaine invalide pour cette requête.
 
 -- Debut de l'ecriture du fichier resultat du programme de test
-SPOOL tests/nbrBillets/nbrBillets.out
-PROMPT fichier resultat du test : nbrBillets.out
+SPOOL tests/nbrBillets/testNbrBillets.out
+PROMPT fichier resultat du test : testNbrBillets.out
 
 -- Appel du fichier de presentation
 @ utilitaires/presentationBaseBilleterie.sql
