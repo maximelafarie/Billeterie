@@ -35,13 +35,13 @@ SQL> SELECT * FROM BILLET;
 
   IDBILLET CODEBILLET           IDCLI    IDTARIF IDSITERESA      IDEVT          
 ---------- --------------- ---------- ---------- ---------- ----------          
-         1 15ED68EP10EPD            1          1          1          1          
-         2 65QS82CD02POD            1          2          1          1          
-         3 85PO36DM19CBD            1          1                     2          
-         4 65DE48IL37UDT            1          4                     3          
-         5 15KD86KU92EGT            1          5                     3          
-         6 02IH68GT40FAB            2          1          1          4          
-         7 70DE65MQ58DOE            1          3                     4          
+         1 15ED68EP10EPD99          1          1          1          1          
+         2 65QS82CD02POD92          1          2          1          1          
+         3 85PO36DM19CBD54          1          1                     2          
+         4 65DE48IL37UDT26          1          4                     3          
+         5 15KD86KU92EGT02          1          5                     3          
+         6 02IH68GT40FAB14          2          1          1          4          
+         7 70DE65MQ58DOE68          1          3                     4          
 
 7 rows selected.
 
@@ -108,8 +108,8 @@ SQL> -- fichier : nbrDiffEvtMartin.sql
 SQL> -- base : BILLETERIE
 SQL> -- auteur(s) : Nicolas DOUSSON
 SQL> -- date : 07/01/14
-SQL> -- role : Affichage du coût pour MARTIN Jean pour les
-SQL> -- 	       événements de type Sport ou Concert
+SQL> -- role : Affichage du prix des billets de Jean MARTIN
+SQL> -- 	       pour les événements de type Sport ou Concert
 SQL> -- projet : Billeterie
 SQL> -- ==================================================
 SQL> 
@@ -129,7 +129,6 @@ MARTIN          Jean            sport   Les Joyaux                       150
 MARTIN          Jean            concert Clipto                           100    
 MARTIN          Jean            concert Barbatruc                         90    
 
-SQL> 
 SQL> 
 SQL> -- Fin de l'affichage sur le client SqlPlus
 SQL> SET echo OFF

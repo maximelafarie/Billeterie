@@ -37,12 +37,12 @@ VALUES (1, 'CARLINE', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
+VALUES (1, '15ED68EP10EPD25', 1, 1, 1, 1);
 
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (2, 50, 'enfant');
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (2, '65QS82CD02POD', 1, 2, 1, 1);
+VALUES (2, '65QS82CD02POD36', 1, 2, 1, 1);
 
 -- CAS 2 : Jean Martin a acheté 1 billet en vente direct pour l'evenement d'id 2
 --		   compris entre septembre 2013 et juin 2014
@@ -54,7 +54,7 @@ VALUES (2, 'Melrane', 'Bordeaux');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '85PO36DM19CBD', 1, 1, NULL, 2);
+VALUES (3, '85PO36DM19CBD98', 1, 1, NULL, 2);
 
 -- CAS 3 : Jean Martin a acheté 2 billets en vente direct pour l'evenement d'id 3
 --		   compris entre septembre 2013 et juin 2014
@@ -66,12 +66,12 @@ VALUES (3, 'Ilimage', 'Nantes');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (3, 'Barbatruc', '25/06/2014', 'enfant', 3);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (4, '65DE48IL37UDT', 1, 4, NULL, 3);
+VALUES (4, '65DE48IL37UDT69', 1, 4, NULL, 3);
 
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (5, 25, 'enfant');
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (5, '15KD86KU92EGT', 1, 5, NULL, 3);
+VALUES (5, '15KD86KU92EGT14', 1, 5, NULL, 3);
 
 -- ============================================================================
 -- Jeu de test pour le DOMAINE INVALIDE
@@ -84,10 +84,10 @@ VALUES (2, 'DUPONT', 'Paul', '0506060606', 'dupont@gmail.com', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (4, 'Lourpa', '05/03/2015', 'comedie', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (6, '02IH68GT40FAB', 2, 1, 1, 4);
+VALUES (6, '02IH68GT40FAB34', 2, 1, 1, 4);
 
 -- Debut de l'ecriture du fichier resultat du programme de test
-SPOOL tests/evtMartinSaison1314/testEvtMartinSaison1314.out
+SPOOL tests/testEvtMartinSaison1314/testEvtMartinSaison1314.out
 PROMPT fichier resultat du test : testEvtMartinSaison1314.out
 
 -- Appel du fichier de presentation
@@ -104,7 +104,7 @@ SET echo ON
 
 -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 prompt 'Resultat de la requete'
-@ tests/evtMartinSaison1314.sql
+@ tests/evtMartinSaison1314/evtMartinSaison1314.sql
 
 -- Fin de l'affichage sur le client SqlPlus
 SET echo OFF

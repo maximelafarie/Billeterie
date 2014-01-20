@@ -1,6 +1,6 @@
 fichier resultat du test : testNbrDiffEvtMartin.out
 Contenu de la base :
-SQL> @ afficherContenuBaseBilleterie.sql
+SQL> @ utilitaires/afficherContenuBaseBilleterie.sql
 SQL> -- ==========================
 SQL> -- fichier : afficherContenuBaseBilleterie.sql
 SQL> -- base : BILLETERIE
@@ -35,12 +35,12 @@ SQL> SELECT * FROM BILLET;
 
   IDBILLET CODEBILLET           IDCLI    IDTARIF IDSITERESA      IDEVT          
 ---------- --------------- ---------- ---------- ---------- ----------          
-         1 15ED68EP10EPD            1          1          1          1          
-         2 65QS82CD02POD            1          2          1          1          
-         3 85PO36DM19CBD            1          1                     2          
-         4 65DE48IL37UDT            1          4                     3          
-         5 15KD86KU92EGT            1          5                     3          
-         6 02IH68GT40FAB            2          1          1          4          
+         1 15ED68EP10EPD84          1          1          1          1          
+         2 65QS82CD02POD65          1          2          1          1          
+         3 85PO36DM19CBD45          1          1                     2          
+         4 65DE48IL37UDT88          1          4                     3          
+         5 15KD86KU92EGT02          1          5                     3          
+         6 02IH68GT40FAB34          2          1          1          4          
 
 6 rows selected.
 
@@ -50,27 +50,12 @@ Contenu de la table evenement :
 SQL> 
 SQL> SELECT * FROM EVENEMENT;
 
-     IDEVT TITREEVT                                           DATEEVT    TYPEEVT
----------- -------------------------------------------------- ---------- -------
-   IDSALLE                                                                      
-----------                                                                      
-         1 Les Joyaux                                         01-02-2014 sport  
-         1                                                                      
-                                                                                
-         2 Clipto                                             10-04-2014 concert
-         2                                                                      
-                                                                                
-         3 Barbatruc                                          25-06-2014 enfant 
-         3                                                                      
-                                                                                
-
-     IDEVT TITREEVT                                           DATEEVT    TYPEEVT
----------- -------------------------------------------------- ---------- -------
-   IDSALLE                                                                      
-----------                                                                      
-         4 Lourpa                                             05-03-2015 comedie
-         1                                                                      
-                                                                                
+     IDEVT TITREEVT        DATEEVT    TYPEEVT    IDSALLE                        
+---------- --------------- ---------- ------- ----------                        
+         1 Les Joyaux      01-02-2014 sport            1                        
+         2 Clipto          10-04-2014 concert          2                        
+         3 Barbatruc       25-06-2014 enfant           3                        
+         4 Lourpa          05-03-2015 comedie          1                        
 
 SQL> 
 SQL> prompt Contenu de la table salle :
@@ -78,19 +63,11 @@ Contenu de la table salle :
 SQL> 
 SQL> SELECT * FROM SALLE;
 
-   IDSALLE NOMSALLE                                                             
----------- --------------------------------------------------                   
-ADRSALLE                                                                        
---------------------------------------------------------------------------------
-         1 CARLINE                                                              
-La Rochelle                                                                     
-                                                                                
-         2 Melrane                                                              
-Bordeaux                                                                        
-                                                                                
-         3 Ilimage                                                              
-Nantes                                                                          
-                                                                                
+   IDSALLE NOMSALLE        ADRSALLE                                             
+---------- --------------- --------------------                                 
+         1 CARLINE         La Rochelle                                          
+         2 Melrane         Bordeaux                                             
+         3 Ilimage         Nantes                                               
 
 SQL> 
 SQL> prompt Contenu de la table tarif :
@@ -112,13 +89,9 @@ Contenu de la table siteresa :
 SQL> 
 SQL> SELECT * FROM SITERESA;
 
-IDSITERESA NOMSITERESA                                                          
----------- --------------------------------------------------                   
-URLSITERESA                                                                     
---------------------------------------------------------------------------------
-         1 LeMoinsCher                                                          
-www.lmc.com                                                                     
-                                                                                
+IDSITERESA NOMSITERESA          URLSITERESA                                     
+---------- -------------------- --------------------                            
+         1 LeMoinsCher          www.lmc.com                                     
 
 SQL> 
 SQL> -- ============================================================================
@@ -128,7 +101,7 @@ SQL>
 SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 SQL> prompt 'Resultat de la requete'
 'Resultat de la requete'
-SQL> @ nbrDiffEvtMartin.sql
+SQL> @ tests/nbrDiffEvtMartin/nbrDiffEvtMartin.sql
 SQL> -- ==================================================
 SQL> -- fichier : nbrDiffEvtMartin.sql
 SQL> -- base : BILLETERIE

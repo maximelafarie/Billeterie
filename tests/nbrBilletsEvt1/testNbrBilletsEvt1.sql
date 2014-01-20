@@ -37,19 +37,19 @@ VALUES (1, 'CARLINE', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
+VALUES (1, '15ED68EP10EPD78', 1, 1, 1, 1);
 
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (2, 50, 'enfant');
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (2, '65QS82CD02POD', 1, 2, 1, 1);
+VALUES (2, '65QS82CD02POD94', 1, 2, 1, 1);
 
 -- CAS 2 : Paul Dupont a achete 1 billet pour l'evenement d'id 1
 -- INSERTION D'UN NOUVEAU BILLET : Cas site resa
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
 VALUES (2, 'DUPONT', 'Paul', '0506060606', 'dupont@gmail.com', 'La Rochelle');
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '02IH68GT40FAB', 2, 1, 1, 1);
+VALUES (3, '02IH68GT40FAB65', 2, 1, 1, 1);
 
 -- ============================================================================
 -- Jeu de test pour le DOMAINE INVALIDE
@@ -64,7 +64,7 @@ VALUES (2, 'Melrane', 'Bordeaux');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (4, '85PO36DM19CBD', 1, 1, NULL, 2);
+VALUES (4, '85PO36DM19CBD15', 1, 1, NULL, 2);
 
 
 -- Debut de l'ecriture du fichier resultat du programme de test
@@ -85,7 +85,7 @@ SET echo ON
 
 -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 prompt 'Resultat de la requete'
-@ tests/nbreBilletsEvt1/nbrBilletsEvt1.sql
+@ tests/nbrBilletsEvt1/nbrBilletsEvt1.sql
 
 -- Fin de l'affichage sur le client SqlPlus
 SET echo OFF
