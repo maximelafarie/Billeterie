@@ -35,7 +35,7 @@ VALUES (1, 'CARLINE', 'La Rochelle');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
+VALUES (1, '15ED68EP10EPD56', 1, 1, 1, 1);
 
 -- CAS 2 : Insertion de deux billets pour le même évènement (même client)
 -- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
@@ -46,9 +46,9 @@ VALUES (2, 'Melrane', 'Bordeaux');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (2, '85PO36DM19CBD', 1, 3, NULL, 2);
+VALUES (2, '85PO36DM19CBD78', 1, 3, NULL, 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '89X736DM55CZM', 1, 3, NULL, 2);
+VALUES (3, '89X736DM55CZM54', 1, 3, NULL, 2);
 
 -- CAS 3 : Insertion d'un nouveau billet pour un autre évènement
 -- INSERTION D'UN NOUVEAU BILLET : Cas site resa
@@ -63,7 +63,7 @@ VALUES (7, 'LACCLAMEUR', 'Niort');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (3, 'Sketch', '02/04/2014', 'comedie', 7);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (4, '07ED77XD10EFR', 2, 2, 2, 3);
+VALUES (4, '07ED77XD10EFR79', 2, 2, 2, 3);
 
 -- ============================================================================
 -- Jeu de test pour le DOMAINE INVALIDE

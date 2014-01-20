@@ -10,6 +10,9 @@
 
 SELECT E.idevt, E.titreevt, E.typeevt
 FROM EVENEMENT E, CLIENT C, BILLET B
-WHERE E.idevt = B.idevt
-AND B.idcli = C.idcli
-AND 
+WHERE C.idcli IN (SELECT C2.idcli, COUNT(*) as NBRSV
+				  FROM CLIENT C2, 
+				  WHERE C2.idcli = C.idcli
+				  AND E.idcli = C2.idcli
+				  AND NBRSV = 1
+				  GROUP BY idcli);
