@@ -101,8 +101,33 @@ SQL>
 SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 SQL> prompt 'Resultat de la requete'
 'Resultat de la requete'
-SQL> @ tests/evtMartinSaison1314.sql
-SP2-0310: unable to open file "tests/evtMartinSaison1314.sql"
+SQL> @ tests/evtMartinSaison1314/evtMartinSaison1314.sql
+SQL> -- ==================================================
+SQL> -- fichier : evtMartinSaison1314.sql
+SQL> -- base : BILLETERIE
+SQL> -- auteur(s) : Nicolas DOUSSON
+SQL> -- date : 07/01/14
+SQL> -- role : Affichage des événements pour lesquels Jean MARTIN
+SQL> -- 	       a acheté des billets qui se déroulent entre septembre
+SQL> -- 	       2013 et juin 2014
+SQL> -- projet : Billeterie
+SQL> -- ==================================================
+SQL> 
+SQL> SELECT DISTINCT C.nomcli, C.prenomcli, E.titreevt, E.dateevt
+  2  FROM Billet B, Client C, Evenement E
+  3  WHERE C.nomcli = 'MARTIN'
+  4  AND C.prenomcli = 'Jean'
+  5  AND C.idcli = B.idcli
+  6  AND E.idevt = B.idevt
+  7  AND E.dateevt BETWEEN to_date ('01/09/2013', 'DD/MM/YYYY')
+  8  AND to_date ('30/06/2014', 'DD/MM/YYYY');
+
+NOMCLI          PRENOMCLI       TITREEVT        DATEEVT                         
+--------------- --------------- --------------- ----------                      
+MARTIN          Jean            Les Joyaux      01-02-2014                      
+MARTIN          Jean            Clipto          10-04-2014                      
+MARTIN          Jean            Barbatruc       25-06-2014                      
+
 SQL> 
 SQL> -- Fin de l'affichage sur le client SqlPlus
 SQL> SET echo OFF

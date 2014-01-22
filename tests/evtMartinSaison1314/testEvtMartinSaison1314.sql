@@ -54,7 +54,7 @@ VALUES (2, 'Melrane', 'Bordeaux');
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
 VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '85PO36DM19CBD98', 1, 1, NULL, 2);
+VALUES (3, '85PO36DM19CBD98', 1, 3, NULL, 2);
 
 -- CAS 3 : Jean Martin a acheté 2 billets en vente direct pour l'evenement d'id 3
 --		   compris entre septembre 2013 et juin 2014
