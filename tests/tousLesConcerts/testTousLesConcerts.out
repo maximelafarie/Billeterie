@@ -1,0 +1,141 @@
+fichier resultat du test : testTousLesConcerts.out
+Contenu de la base :
+SQL> @ utilitaires/afficherContenuBaseBilleterie.sql
+SQL> -- ==========================
+SQL> -- fichier : afficherContenuBaseBilleterie.sql
+SQL> -- base : BILLETERIE
+SQL> -- auteur(s) : Maxime LAFARIE
+SQL> -- auteur(s) : Nicolas DOUSSON
+SQL> -- date : 07/01/14
+SQL> -- role : Afficher le contenu des differentes tables de la base
+SQL> -- projet : Billeterie
+SQL> -- ==========================
+SQL> 
+SQL> prompt Contenu de la table client :
+Contenu de la table client :
+SQL> 
+SQL> SELECT * FROM CLIENT;
+
+     IDCLI NOMCLI          PRENOMCLI       TELCLI     MAILCLI                   
+---------- --------------- --------------- ---------- --------------------      
+ADRCLI                                                                          
+---------------                                                                 
+         1 MARTIN          Jean            0505050505 martin@gmail.com          
+La Rochelle                                                                     
+                                                                                
+         2 MIRON           Herve           0605050505 miron@gmail.com           
+Niort                                                                           
+                                                                                
+         3 PLEAU           Dimitri         0705050505 pleau@gmail.com           
+Paris                                                                           
+                                                                                
+
+     IDCLI NOMCLI          PRENOMCLI       TELCLI     MAILCLI                   
+---------- --------------- --------------- ---------- --------------------      
+ADRCLI                                                                          
+---------------                                                                 
+         4 DUGET           Romane          0706050505 duget@gmail.com           
+Lyon                                                                            
+                                                                                
+
+SQL> 
+SQL> prompt Contenu de la table billet :
+Contenu de la table billet :
+SQL> 
+SQL> SELECT * FROM BILLET;
+
+  IDBILLET CODEBILLET           IDCLI    IDTARIF IDSITERESA      IDEVT          
+---------- --------------- ---------- ---------- ---------- ----------          
+         1 85PO365219CBD47          1          1                     1          
+         2 85P52SAM19CBD47          1          1                     2          
+         3 996ZESAM19CBD47          1          1                     3          
+         4 862546DM19CBD47          2          1                     1          
+         5 658SD6DM19CBD47          2          1                     2          
+         6 85PO377719CBD47          3          1                     1          
+         7 8562165219CBD47          3          1                     3          
+         8 62A5ZE7719CBD47          4          1                     3          
+
+8 rows selected.
+
+SQL> 
+SQL> prompt Contenu de la table evenement :
+Contenu de la table evenement :
+SQL> 
+SQL> SELECT * FROM EVENEMENT;
+
+     IDEVT TITREEVT        DATEEVT    TYPEEVT    IDSALLE                        
+---------- --------------- ---------- ------- ----------                        
+         1 GrandShow       10-04-2014 concert          1                        
+         2 MusicFestival   02-12-2014 concert          2                        
+         3 MatchRugby      18-08-2014 sport            3                        
+
+SQL> 
+SQL> prompt Contenu de la table salle :
+Contenu de la table salle :
+SQL> 
+SQL> SELECT * FROM SALLE;
+
+   IDSALLE NOMSALLE        ADRSALLE                                             
+---------- --------------- --------------------                                 
+         1 Melrane         Bordeaux                                             
+         2 Lacclameur      Niort                                                
+         3 StadeMichelHipp Brest                                                
+           eau                                                                  
+                                                                                
+
+SQL> 
+SQL> prompt Contenu de la table tarif :
+Contenu de la table tarif :
+SQL> 
+SQL> SELECT * FROM TARIF;
+
+   IDTARIF       PRIX TYPETARI                                                  
+---------- ---------- --------                                                  
+         1         85 plein                                                     
+
+SQL> 
+SQL> prompt Contenu de la table siteresa :
+Contenu de la table siteresa :
+SQL> 
+SQL> SELECT * FROM SITERESA;
+
+no rows selected
+
+SQL> 
+SQL> -- ============================================================================
+SQL> -- Requete a tester
+SQL> -- ============================================================================
+SQL> 
+SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
+SQL> prompt 'Resultat de la requete'
+'Resultat de la requete'
+SQL> @ tests/tousLesConcerts/tousLesConcerts.sql
+SQL> -- ============================================================================
+SQL> -- Fichier 	 : tousLesConcerts.sql
+SQL> -- Auteur		 : Maxime LAFARIE
+SQL> -- Date		 : Janvier 2014
+SQL> -- Base			     : Billeterie
+SQL> -- Projet		 : Billeterie
+SQL> -- Role		 : Clients ayant acheté des billets pour tous les
+SQL> -- 				       évènements de type "concert".
+SQL> -- ============================================================================
+SQL> 
+SQL> SELECT DISTINCT C.idcli, C.prenomcli, C.nomcli
+  2  FROM BILLET B, CLIENT C
+  3  WHERE NOT EXISTS (SELECT *
+  4  				       FROM EVENEMENT E
+  5  				       WHERE E.typeevt = 'concert'
+  6  				       AND NOT EXISTS ( SELECT *
+  7  									FROM BILLET B2
+  8  									WHERE B2.idevt = E.idevt
+  9  									AND B2.idcli = B.idcli))
+ 10  AND C.idcli = B.idcli;
+
+     IDCLI PRENOMCLI       NOMCLI                                               
+---------- --------------- ---------------                                      
+         1 Jean            MARTIN                                               
+         2 Herve           MIRON                                                
+
+SQL> 
+SQL> -- Fin de l'affichage sur le client SqlPlus
+SQL> SET echo OFF
