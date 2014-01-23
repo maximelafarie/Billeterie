@@ -1,12 +1,12 @@
--- ==================================================
--- fichier : tousLesConcerts.sql
--- base : BILLETERIE
--- auteur(s) : Maxime LAFARIE
--- date : 07/01/14
--- role : Effectuer l'insertion des nuplets pour le test de la
---		  requete tousLesConcerts.sql.
--- projet : Billeterie
--- ==================================================
+-- ============================================================================
+-- fichier :	tousLesConcerts.sql
+-- base : 		BILLETERIE
+-- auteur(s) : 	Maxime LAFARIE
+-- date : 		Décembre 2013 / Janvier 2014
+-- role : 		Effectuer l'insertion des nuplets pour le test de la
+--		  		requete tousLesConcerts.sql.
+-- projet : 	Billeterie
+-- ============================================================================
 
 -- ============================================================================
 -- Modification du format de la date pour se conformer aux donnees du programme de test
@@ -54,7 +54,7 @@ INSERT INTO salle (idsalle, nomsalle, adrsalle)
 VALUES (3, 'StadeMichelHippeau', 'Brest');
 
 INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
-VALUES (3, 'MatchRugby', '18/8/2014', 'sport', 3);
+VALUES (3, 'MatchRugby', '18/08/2014', 'sport', 3);
 
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (3, '996ZESAM19CBD47', 1, 1, NULL, 3);

@@ -8,9 +8,8 @@
 --					  acheteurs ont acheté un seul billet).
 -- ============================================================================
 
-SELECT DISTINCT E.titreevt, count(*) as NBRBILLETS 
-FROM BILLET B, EVENEMENT E 
-WHERE B.idevt = E.idevt 
-GROUP BY E.titreevt
-HAVING COUNT(*) = 1 
-ORDER BY E.titreevt ASC;
+SELECT B.idevt, E.titreevt, E.typeevt
+FROM BILLET B, EVENEMENT E
+WHERE E.idevt = B.idevt
+GROUP BY B.idevt, E.titreevt, E.typeevt
+HAVING COUNT(B.idcli) = COUNT(DISTINCT B.idcli);

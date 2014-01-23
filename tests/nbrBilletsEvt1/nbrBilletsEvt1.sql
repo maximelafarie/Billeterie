@@ -1,11 +1,11 @@
 -- ==================================================
--- fichier : nbrBilletsEvt1.sql
--- base : BILLETERIE
--- auteur(s) : Nicolas DOUSSON
--- date : 07/01/14
--- role : Affichage du nombre de billets vendu pour
---  	  l'événement d'id 1 
--- projet : Billeterie
+-- fichier : 	nbrBilletsEvt1.sql
+-- base : 		BILLETERIE
+-- auteur(s) : 	Nicolas DOUSSON
+-- date : 		07/01/14
+-- role : 		Affichage du nombre de billets vendu pour
+--  	  		l'événement d'id 1 
+-- projet : 	Billeterie
 -- ==================================================
 
 SELECT COUNT(B.idbillet) as billetvendu

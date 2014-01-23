@@ -1,10 +1,11 @@
 -- ==================================================
--- fichier : nbrBillets.sql
--- base : BILLETERIE
--- auteur(s) : Maxime LAFARIE
--- date : 07/01/14
--- role :
--- projet : Billeterie
+-- fichier : 	nbrBillets.sql
+-- base : 		BILLETERIE
+-- auteur(s) : 	Maxime LAFARIE
+-- date : 		Décembre 2013 / Janvier 2014
+-- role : 		Effectuer l'insertion des nuplets pour le test de la
+--		  		requete nbrBillets.sql.
+-- projet : 	Billeterie
 -- ==================================================
 
 -- ============================================================================
@@ -37,7 +38,7 @@ VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
 VALUES (1, '15ED68EP10EPD56', 1, 1, 1, 1);
 
--- CAS 2 : Insertion de deux billets pour le même évènement (même client)
+-- CAS 2 : Insertion de deux billets pour le même évènement (même client).
 -- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
 INSERT INTO tarif (idtarif, prix, typetarif)
 VALUES (3, 85, 'plein');

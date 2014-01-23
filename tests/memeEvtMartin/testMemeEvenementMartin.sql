@@ -1,10 +1,11 @@
 -- ==================================================
--- fichier : memeEvenementMartin.sql
--- base : BILLETERIE
--- auteur(s) : Maxime LAFARIE
--- date : 07/01/14
--- role :
--- projet : Billeterie
+-- fichier : 	testMemeEvtMartin.sql
+-- base : 		BILLETERIE
+-- auteur(s) : 	Maxime LAFARIE
+-- date : 		Décembre 2013 / Janvier 2014
+-- role : 		Effectuer l'insertion des nuplets pour le test de la
+--		  		requete memeEvtMartin.sql.
+-- projet : 	Billeterie
 -- ==================================================
 
 -- ============================================================================
@@ -22,48 +23,81 @@ alter session set NLS_DATE_FORMAT='dd-mm-yyyy';
 -- Jeu de test pour le DOMAINE VALIDE
 -- ============================================================================
 
--- CAS 1 : Insertion d'un billet pour un évènement de type "sport"
--- INSERTION D'UN NOUVEAU BILLET : Cas site resa
+-- CAS 1 : Client ayant acheté un billet pour le même évènement que celui de Jean 
+--         MARTIN le 15/12/2013.
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
 VALUES (1, 'MARTIN', 'Jean', '0505050505', 'martin@gmail.com', 'La Rochelle');
-INSERT INTO tarif (idtarif, prix, typetarif)
-VALUES (1, 100, 'plein');
-INSERT INTO siteresa (idsiteresa, nomsiteresa, urlsiteresa)
-VALUES (1, 'LeMoinsCher', 'www.lmc.com');
-INSERT INTO salle (idsalle, nomsalle, adrsalle)
-VALUES (1, 'CARLINE', 'La Rochelle');
-INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
-VALUES (1, 'Les Joyaux', '01/02/2014', 'sport', 1);
-INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (1, '15ED68EP10EPD', 1, 1, 1, 1);
 
--- CAS 2 : Insertion de deux billets pour le même évènement (même client)
--- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
 INSERT INTO tarif (idtarif, prix, typetarif)
-VALUES (3, 85, 'plein');
-INSERT INTO salle (idsalle, nomsalle, adrsalle)
-VALUES (2, 'Melrane', 'Bordeaux');
-INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
-VALUES (2, 'Clipto', '10/04/2014', 'concert', 2);
-INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (2, '85PO36DM19CBD', 1, 3, NULL, 2);
+VALUES (1, 85, 'plein');
 
--- CAS 3 : Insertion d'un nouveau billet pour un autre évènement
--- INSERTION D'UN NOUVEAU BILLET : Cas site resa
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (1, 'Melrane', 'Bordeaux');
+
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (1, 'GrandShow', '15/12/2013', 'concert', 1);
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (1, '85PO365219CBD47', 1, 1, NULL, 1);
+
 INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
-VALUES (2, 'DUPONT', 'Michel', '0605050505', 'michel@gmail.com', 'Niort');
+VALUES (2, 'MIRON', 'Herve', '0605050505', 'miron@gmail.com', 'Niort');
+
 INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
-VALUES (3, '89X736DM55CZM', 2, 1, NULL, 1);
+VALUES (2, '85P52SAM19CBD47', 2, 1, NULL, 1);
+
+-- CAS 2 : Client différent ayant acheté des billets pour le même évènement 
+--         que celui de Jean MARTIN le 15/12/2013.
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+
+INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
+VALUES (3, 'PLEAU', 'Dimitri', '0705050505', 'pleau@gmail.com', 'Paris');
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (3, '996ZESAM19CBD47', 3, 1, NULL, 1);
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (4, '862546DM19CBD47', 3, 1, NULL, 1);
 
 -- ============================================================================
 -- Jeu de test pour le DOMAINE INVALIDE
 -- ============================================================================
 
--- Pas de domaine invalide pour cette requête.
+-- CAS 3 : Client ayant acheté un billet pour un évènement différent de celui 
+--         de Jean MARTIN le 15/12/2013. 
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+INSERT INTO client (idcli, nomcli, prenomcli, telcli, mailcli, adrcli)
+VALUES (4, 'DUGET', 'Romane', '0706050505', 'duget@gmail.com', 'Lyon');
+
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (2, 'Lacclameur', 'Niort');
+
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (2, 'MusicFestival', '15/12/2013', 'concert', 2);
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (5, '658SD6DM19CBD47', 4, 1, NULL, 2);
+
+-- CAS 4 : Client ayant acheté un billet pour le même évènement que celui de 
+--         Jean MARTIN à une autre date que le 15/12/2013.
+-- INSERTION D'UN NOUVEAU BILLET : Cas vente direct particulier
+INSERT INTO salle (idsalle, nomsalle, adrsalle)
+VALUES (3, 'StadeMichelHippeau', 'Brest');
+
+INSERT INTO evenement (idevt, titreevt, dateevt, typeevt, idsalle)
+VALUES (3, 'MatchRugby', '18/08/2014', 'sport', 3);
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (6, '85PO377719CBD47', 1, 1, NULL, 3);
+
+INSERT INTO billet (idbillet, codebillet, idcli, idtarif, idsiteresa, idevt)
+VALUES (7, '8562165219CBD47', 4, 1, NULL, 3);
+
 
 -- Debut de l'ecriture du fichier resultat du programme de test
-SPOOL tests/memeEvenementMartin/memeEvenementMartin.out
-PROMPT fichier resultat du test : memeEvenementMartin.out
+SPOOL tests/memeEvtMartin/testMemeEvtMartin.out
+PROMPT fichier resultat du test : testMemeEvtMartin.out
 
 -- Appel du fichier de presentation
 @ utilitaires/presentationBaseBilleterie.sql
@@ -79,7 +113,7 @@ SET echo ON
 
 -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 prompt 'Resultat de la requete'
-@ tests/memeEvenementMartin/memeEvenementMartin.sql
+@ tests/memeEvtMartin/memeEvtMartin.sql
 
 -- Fin de l'affichage sur le client SqlPlus
 SET echo OFF

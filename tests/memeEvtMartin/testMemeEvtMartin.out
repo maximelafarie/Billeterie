@@ -1,4 +1,4 @@
-fichier resultat du test : memeEvenementMartin.out
+fichier resultat du test : testMemeEvtMartin.out
 Contenu de la base :
 SQL> @ utilitaires/afficherContenuBaseBilleterie.sql
 SQL> -- ==========================
@@ -23,8 +23,19 @@ ADRCLI
          1 MARTIN          Jean            0505050505 martin@gmail.com          
 La Rochelle                                                                     
                                                                                 
-         2 DUPONT          Michel          0605050505 michel@gmail.com          
+         2 MIRON           Herve           0605050505 miron@gmail.com           
 Niort                                                                           
+                                                                                
+         3 PLEAU           Dimitri         0705050505 pleau@gmail.com           
+Paris                                                                           
+                                                                                
+
+     IDCLI NOMCLI          PRENOMCLI       TELCLI     MAILCLI                   
+---------- --------------- --------------- ---------- --------------------      
+ADRCLI                                                                          
+---------------                                                                 
+         4 DUGET           Romane          0706050505 duget@gmail.com           
+Lyon                                                                            
                                                                                 
 
 SQL> 
@@ -35,9 +46,15 @@ SQL> SELECT * FROM BILLET;
 
   IDBILLET CODEBILLET           IDCLI    IDTARIF IDSITERESA      IDEVT          
 ---------- --------------- ---------- ---------- ---------- ----------          
-         1 15ED68EP10EPD            1          1          1          1          
-         2 85PO36DM19CBD            1          3                     2          
-         3 89X736DM55CZM            2          1                     1          
+         1 85PO365219CBD47          1          1                     1          
+         2 85P52SAM19CBD47          2          1                     1          
+         3 996ZESAM19CBD47          3          1                     1          
+         4 862546DM19CBD47          3          1                     1          
+         5 658SD6DM19CBD47          4          1                     2          
+         6 85PO377719CBD47          1          1                     3          
+         7 8562165219CBD47          4          1                     3          
+
+7 rows selected.
 
 SQL> 
 SQL> prompt Contenu de la table evenement :
@@ -47,8 +64,9 @@ SQL> SELECT * FROM EVENEMENT;
 
      IDEVT TITREEVT        DATEEVT    TYPEEVT    IDSALLE                        
 ---------- --------------- ---------- ------- ----------                        
-         1 Les Joyaux      01-02-2014 sport            1                        
-         2 Clipto          10-04-2014 concert          2                        
+         1 GrandShow       15-12-2013 concert          1                        
+         2 MusicFestival   15-12-2013 concert          2                        
+         3 MatchRugby      18-08-2014 sport            3                        
 
 SQL> 
 SQL> prompt Contenu de la table salle :
@@ -58,8 +76,11 @@ SQL> SELECT * FROM SALLE;
 
    IDSALLE NOMSALLE        ADRSALLE                                             
 ---------- --------------- --------------------                                 
-         1 CARLINE         La Rochelle                                          
-         2 Melrane         Bordeaux                                             
+         1 Melrane         Bordeaux                                             
+         2 Lacclameur      Niort                                                
+         3 StadeMichelHipp Brest                                                
+           eau                                                                  
+                                                                                
 
 SQL> 
 SQL> prompt Contenu de la table tarif :
@@ -69,8 +90,7 @@ SQL> SELECT * FROM TARIF;
 
    IDTARIF       PRIX TYPETARI                                                  
 ---------- ---------- --------                                                  
-         1        100 plein                                                     
-         3         85 plein                                                     
+         1         85 plein                                                     
 
 SQL> 
 SQL> prompt Contenu de la table siteresa :
@@ -78,9 +98,7 @@ Contenu de la table siteresa :
 SQL> 
 SQL> SELECT * FROM SITERESA;
 
-IDSITERESA NOMSITERESA          URLSITERESA                                     
----------- -------------------- --------------------                            
-         1 LeMoinsCher          www.lmc.com                                     
+no rows selected
 
 SQL> 
 SQL> -- ============================================================================
@@ -90,9 +108,9 @@ SQL>
 SQL> -- Debut de l'affichage du resultat de la requete sur le client SqlPlus
 SQL> prompt 'Resultat de la requete'
 'Resultat de la requete'
-SQL> @ tests/memeEvenementMartin/memeEvenementMartin.sql
+SQL> @ tests/memeEvtMartin/memeEvtMartin.sql
 SQL> -- ============================================================================
-SQL> -- Fichier 	 : memeEvenementMartin.sql
+SQL> -- Fichier 	 : memeEvtMartin.sql
 SQL> -- Auteur		 : Maxime LAFARIE
 SQL> -- Date		 : Janvier 2014
 SQL> -- Base			     : Billeterie
@@ -101,20 +119,26 @@ SQL> -- Role		 : Clients ayant acheté un ou des billets pour le même
 SQL> -- 				       évènement que Jean MARTIN le 15/12/2013.
 SQL> -- ============================================================================
 SQL> 
-SQL> SELECT C2.idcli, C2.nomcli, C2.prenomcli
-  2  FROM CLIENT C1, CLIENT C2, EVENEMENT E1, EVENEMENT E2, BILLET B1, BILLET B2
-  3  WHERE C1.nomcli = 'MARTIN'
-  4  AND C1.idcli = B1.idcli
-  5  AND E1.dateevt = '15/12/2013'
-  6  AND B1.idevt = E1.idevt
-  7  AND E1.idevt = E2.idevt
-  8  AND E1.dateevt = E2.dateevt
-  9  AND B2.idevt = E2.idevt
+SQL> SELECT DISTINCT C2.idcli, C2.prenomcli, C2.nomcli
+  2  FROM CLIENT C, EVENEMENT E, BILLET B, CLIENT C2, BILLET B2
+  3  WHERE B.idcli = C.idcli
+  4  AND C.idcli IN (SELECT C.idcli
+  5  				     FROM CLIENT C
+  6  				     WHERE C.nomcli = 'MARTIN'
+  7  				     AND C.prenomcli = 'Jean')
+  8  AND E.idevt = B.idevt
+  9  AND B2.idevt = E.idevt
  10  AND C2.idcli = B2.idcli
- 11  AND C2.nomcli != 'MARTIN'
- 12  ORDER BY C2.idcli ASC;
+ 11  AND E.dateevt = '15/12/2013'
+ 12  AND C2.idcli NOT IN (SELECT C.idcli
+ 13  					      FROM CLIENT C
+ 14  					      WHERE C.nomcli = 'MARTIN'
+ 15  					      AND C.prenomcli = 'Jean');
 
-no rows selected
+     IDCLI PRENOMCLI       NOMCLI                                               
+---------- --------------- ---------------                                      
+         2 Herve           MIRON                                                
+         3 Dimitri         PLEAU                                                
 
 SQL> 
 SQL> -- Fin de l'affichage sur le client SqlPlus

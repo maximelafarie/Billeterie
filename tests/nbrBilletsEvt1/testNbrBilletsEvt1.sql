@@ -1,11 +1,12 @@
 -- ==================================================
--- fichier : testNbrBilletsEvt1.sql
--- base : BILLETERIE
--- auteur(s) : Nicolas DOUSSON
--- auteur(s) : Maxime LAFARIE
--- date : 07/01/14
--- role :
--- projet : Billeterie
+-- fichier : 	testNbrBilletsEvt1.sql
+-- base : 		BILLETERIE
+-- auteur(s) : 	Nicolas DOUSSON
+-- auteur(s) : 	Maxime LAFARIE
+-- date : 		Décembre 2013 / Janvier 2014
+-- role : 		Effectuer l'insertion des nuplets pour le test de la
+--		  		requete testNbrBilletsEvt1.sql.
+-- projet : 	Billeterie
 -- ==================================================
 
 -- ============================================================================
